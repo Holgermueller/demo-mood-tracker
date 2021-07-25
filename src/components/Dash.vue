@@ -1,12 +1,30 @@
 <template>
   <div id="dashboard">
-    <h1>user dashboard</h1>
+    <TodaysDateDisplay />
+
+    <MoodRangeButtons />
+
+    <InstancesTracked />
+
+    <MoodBarGraphs />
   </div>
 </template>
 
 <script>
+import TodaysDateDisplay from "./DashComponents/TodaysDate.vue";
+import MoodRangeButtons from "./DashComponents/MoodRange.vue";
+import InstancesTracked from "./DashComponents/InstancesTracked.vue";
+import MoodBarGraphs from "./DashComponents/Graphs.vue";
+
 export default {
   name: "Dashboard",
+
+  components: {
+    TodaysDateDisplay,
+    MoodRangeButtons,
+    InstancesTracked,
+    MoodBarGraphs,
+  },
 
   data() {
     return {};
