@@ -1,9 +1,19 @@
 export default {
-  state: {},
+  state: {
+    userMoods: null,
+  },
 
-  mutations: {},
+  mutations: {
+    SET_USER_MOODS(state, payload) {
+      state.userMoods = payload;
+    },
+  },
 
   actions: {},
 
-  getters: {},
+  getters: {
+    userMoods(state) {
+      return state.userMoods;
+    },
+  },
 };
