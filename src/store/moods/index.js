@@ -1,6 +1,38 @@
 export default {
   state: {
     userMoods: null,
+
+    placeHolderMoods: [
+      {
+        mood:'Sad',
+        timesFelt:,
+      },
+
+      {
+        mood:,
+        timesFelt:,
+      },
+
+      {
+        mood:,
+        timesFelt:,
+      },
+
+      {
+        mood:,
+        timesFelt:,
+      },
+
+      {
+        mood:,
+        timesFelt:,
+      },
+
+      {
+        mood:,
+        timesFelt:,
+      },
+    ],
   },
 
   mutations: {
