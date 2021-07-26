@@ -6,7 +6,7 @@
       <legend>
         How are you feeling today?
       </legend>
-      <v-form ref="form" v-for="mood in moods" :key="mood.mood">
+      <div v-for="mood in moods" :key="mood.mood" class="buttons-array">
         <v-btn
           @click.prevent="incrementMood"
           :color="mood.color"
@@ -17,7 +17,7 @@
         >
           {{ mood.mood }}
         </v-btn>
-      </v-form>
+      </div>
     </fieldset>
   </div>
 </template>
@@ -38,7 +38,9 @@ export default {
 
   methods: {
     incrementMood() {
-      console.log(this.value);
+      let buttonId = this.id;
+
+      console.log(buttonId);
     },
   },
 };
@@ -50,18 +52,20 @@ h2 {
   margin: auto;
 }
 fieldset {
-  width: 55%;
+  width: fit-content;
   margin: 4px auto;
   border-radius: 15px;
 }
 legend {
   margin: auto;
 }
-form {
-  margin: 2px auto;
+.buttons-array {
+  display: inline;
+  justify-content: center;
+  padding: 8px;
 }
-button {
-  margin: 2px auto;
+.button {
+  margin: auto;
   border-radius: 7px;
   width: 15%;
 }

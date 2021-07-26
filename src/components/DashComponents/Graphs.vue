@@ -1,7 +1,5 @@
 <template>
   <div id="moodGraphs" class="graphs">
-    <h1>Bar graphs</h1>
-
     <div class="graphs">
       <div v-for="mood in moods" :key="mood.mood" class="mood">
         <div
