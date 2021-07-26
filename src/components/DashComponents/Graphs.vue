@@ -7,7 +7,13 @@
         <div
           class="single-mood"
           :class="mood.mood"
-          style="border-left: mood.borderColor;"
+          :style="
+            `width: ${Math.floor((100 / instancesTracked) * mood.timesFelt) ||
+              0}%;
+            background: ${mood.color}; border-left: 4px solid ${
+              mood.borderColor
+            }; `
+          "
         ></div>
         <span>{{ mood.mood }} | Times felt: {{ mood.timesFelt }}</span>
       </div>
@@ -54,7 +60,6 @@ export default {
   height: 100%;
   position: absolute;
   box-sizing: border-box;
-  border-left: 4px solid;
 }
 
 span {
