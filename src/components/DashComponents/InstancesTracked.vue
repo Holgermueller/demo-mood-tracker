@@ -1,6 +1,6 @@
 <template>
   <div id="instancesTracked">
-    <h3>Instances tracked: [99]</h3>
+    <h3>Instances tracked: {{ instancesTracked }}</h3>
   </div>
 </template>
 
@@ -10,6 +10,15 @@ export default {
 
   data() {
     return {};
+  },
+
+  computed: {
+    instancesTracked() {
+      return this.$store.getters.moods.reduce(
+        (a, { timesFelt }) => a + timesFelt,
+        0
+      );
+    },
   },
 };
 </script>
