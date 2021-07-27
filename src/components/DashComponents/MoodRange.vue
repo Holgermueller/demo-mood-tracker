@@ -43,9 +43,6 @@ export default {
     incrementMood(e) {
       let moodValue = e.currentTarget.value;
       let moodId = e.currentTarget.id;
-
-      console.log(moodValue);
-      console.log(moodId);
     },
   },
 };

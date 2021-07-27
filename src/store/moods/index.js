@@ -58,6 +58,16 @@ export default {
     SET_USER_MOODS(state, payload) {
       state.userMoods = payload;
     },
+
+    INCREMENT_MOOD(state, payload) {
+      const moodToIncrement = state.userMoods.find((theseMoods) => {
+        return theseMoods.id == payload.moodId;
+      });
+
+      if (payload.moodToIncrement) {
+        moodToIncrement.timesFelt = payload.moodIncrement;
+      }
+    },
   },
 
   actions: {},
