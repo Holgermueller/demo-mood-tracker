@@ -13,7 +13,8 @@
           :style="`border: 2px solid ${mood.borderColor}`"
           elevation="0"
           :id="mood.mood"
-          :value="mood.mood"
+          :value="mood.timesFelt"
+          :model="mood"
         >
           {{ mood.mood }}
         </v-btn>
@@ -27,7 +28,9 @@ export default {
   name: "MoodRangeButtons",
 
   data() {
-    return {};
+    return {
+      moodToIncrement: this.mood,
+    };
   },
 
   computed: {
@@ -37,10 +40,12 @@ export default {
   },
 
   methods: {
-    incrementMood() {
-      let buttonId = this.id;
+    incrementMood(e) {
+      let moodValue = e.currentTarget.value;
+      let moodId = e.currentTarget.id;
 
-      console.log(buttonId);
+      console.log(moodValue);
+      console.log(moodId);
     },
   },
 };
@@ -55,6 +60,7 @@ fieldset {
   width: fit-content;
   margin: 4px auto;
   border-radius: 15px;
+  padding: 8px;
 }
 legend {
   margin: auto;
