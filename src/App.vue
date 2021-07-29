@@ -18,7 +18,7 @@
 
       <v-btn elevation="0">
         Log out
-        <v-icon right>mdi-logout</v-icon>
+        <v-icon @click.prevent="logOut" right>mdi-logout</v-icon>
       </v-btn>
     </v-app-bar>
 
@@ -39,6 +39,15 @@ export default {
   data: () => ({
     //
   }),
+
+  methods: {
+    logOut() {
+      this.$store.dispatch("logout");
+      this.$router.go({
+        path: this.$router.path,
+      });
+    },
+  },
 };
 </script>
 

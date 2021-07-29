@@ -31,7 +31,84 @@ export default {
           commit("SET_USER", newUser);
 
           db.collection("userProfiles")
-            .add()
+            .add({
+              username: payload.username,
+              userId: user.uid,
+              userMoods: [
+                {
+                  creatorId: "",
+                  mood: "Bored",
+                  moodId: "bored",
+                  timesFelt: 0,
+                  borderColor: "green",
+                  color: "rgba(69, 196, 150, 0.2)",
+                },
+                {
+                  creatorId: user.uid,
+                  mood: "Happy",
+                  moodId: "happy",
+                  timesFelt: 0,
+                  borderColor: "#ffd700",
+                  color: "rgba(255, 215, 0, 0.2)",
+                },
+                {
+                  creatorId: user.uid,
+                  mood: "Sad",
+                  moodId: "sad",
+                  timesFelt: 0,
+                  borderColor: "blue",
+                  color: "rgba(0, 0, 255, 0.2)",
+                },
+                {
+                  creatorId: user.uid,
+                  mood: "Tired",
+                  moodId: "tired",
+                  timesFelt: 0,
+                  borderColor: "#9932cc",
+                  color: "rgba(153, 50, 204, 0.2)",
+                },
+                {
+                  creatorId: user.uid,
+                  mood: "Anxious",
+                  moodId: "anxious",
+                  timesFelt: 0,
+                  borderColor: "#ffa500",
+                  color: "rgba(255, 165, 0, 0.2)",
+                },
+                {
+                  creatorId: user.uid,
+                  mood: "Angry",
+                  moodId: "angry",
+                  timesFelt: 0,
+                  borderColor: "red",
+                  color: "rgba(217, 27, 66, 0.2)",
+                },
+                {
+                  creatorId: user.uid,
+                  mood: "Uncomfortable",
+                  moodId: "uncomfortable",
+                  timesFelt: 0,
+                  borderColor: "#40E0D0",
+                  color: "rgba(64, 224, 208, 0.2)",
+                },
+                {
+                  creatorId: user.uid,
+                  mood: "Calm",
+                  moodId: "calm",
+                  timesFelt: 0,
+                  borderColor: "#00005f",
+                  color: "rgba(0, 0, 95, 0.2)",
+                },
+                {
+                  creatorId: user.uid,
+                  mood: "Weird",
+                  moodId: "weird",
+                  timesFelt: 0,
+                  borderColor: "#ff00ff",
+                  color: "rgba(255, 0, 255, 0.2)",
+                },
+              ],
+            })
             .then(() => {
               commit("SET_LOADING", false);
             })

@@ -41,8 +41,8 @@ export default {
 
   methods: {
     incrementMood(e) {
-      let moodValue = e.currentTarget.value;
-      let moodId = e.currentTarget.id;
+      // let moodValue = e.currentTarget.value;
+      // let moodId = e.currentTarget.id;
     },
   },
 };

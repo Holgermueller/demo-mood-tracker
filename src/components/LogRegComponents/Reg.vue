@@ -67,9 +67,27 @@ export default {
     };
   },
 
-  computed: {},
+  computed: {
+    user() {
+      return this.$store.getters.user;
+    },
 
-  watch: {},
+    loading() {
+      return this.$store.getters.loading;
+    },
+
+    error() {
+      return this.$store.getters.error;
+    },
+  },
+
+  watch: {
+    user(value) {
+      if (value !== null && value !== undefined) {
+        this.$router.push("./dashboard");
+      }
+    },
+  },
 
   methods: {
     checkForm() {
@@ -78,13 +96,11 @@ export default {
     },
 
     registerUser() {
-      let user = {
+      this.$store.dispatch("registerUser", {
         username: this.username,
         password: this.password,
         email: this.email,
-      };
-
-      console.log(user);
+      });
     },
 
     clearForm() {
