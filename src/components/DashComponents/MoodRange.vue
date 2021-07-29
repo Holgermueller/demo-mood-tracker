@@ -4,7 +4,7 @@
 
     <fieldset>
       <legend>
-        How are you feeling today?
+        How are you feeling?
       </legend>
       <div v-for="mood in moods" :key="mood.mood" class="buttons-array">
         <v-btn
