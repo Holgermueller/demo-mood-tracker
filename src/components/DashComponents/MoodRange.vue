@@ -1,25 +1,31 @@
 <template>
   <div id="moodRange">
-    <h2>Hello, [username]</h2>
+    <v-card class="mood-range-card" elevation="0" :loading="loading">
+      <v-card-title>
+        <h2>Hello, [username]</h2>
+      </v-card-title>
 
-    <fieldset>
-      <legend>
-        How are you feeling?
-      </legend>
-      <div v-for="mood in moods" :key="mood.mood" class="buttons-array">
-        <v-btn
-          @click.prevent="incrementMood"
-          :color="mood.color"
-          :style="`border: 2px solid ${mood.borderColor}`"
-          elevation="0"
-          :id="mood.mood"
-          :value="mood.timesFelt"
-          :model="mood"
-        >
-          {{ mood.mood }}
-        </v-btn>
-      </div>
-    </fieldset>
+      <v-card-text>
+        <fieldset>
+          <legend>
+            How are you feeling?
+          </legend>
+          <!-- <div v-for="mood in moods" :key="mood.mood" class="buttons-array">
+            <v-btn
+              @click.prevent="incrementMood"
+              :color="mood.color"
+              :style="`border: 2px solid ${mood.borderColor}`"
+              elevation="0"
+              :id="mood.mood"
+              :value="mood.timesFelt"
+              :model="mood"
+            >
+              {{ mood.mood }}
+            </v-btn>
+          </div> -->
+        </fieldset>
+      </v-card-text>
+    </v-card>
   </div>
 </template>
 
@@ -33,6 +39,12 @@ export default {
     };
   },
 
+  computed: {
+    loading() {
+      return this.$store.getters.loading;
+    },
+  },
+
   methods: {
     incrementMood() {
       // let moodValue = e.currentTarget.value;
@@ -43,6 +55,10 @@ export default {
 </script>
 
 <style scoped>
+.mood-range-card {
+  width: 75%;
+  margin: 2px auto;
+}
 h2 {
   width: fit-content;
   margin: auto;

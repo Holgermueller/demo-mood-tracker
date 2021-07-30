@@ -5,8 +5,11 @@ import firebase from "firebase/app";
 import "./firebase/firebaseInit";
 import { store } from "./store";
 import vuetify from "./plugins/vuetify";
+import AlertCmp from "./components/shared/Alert.vue";
 
 Vue.config.productionTip = false;
+
+Vue.component("app-alert", AlertCmp);
 
 new Vue({
   vuetify,

@@ -2,11 +2,11 @@ import firebase from "../../firebase/firebaseInit";
 
 export default {
   state: {
-    moods: [],
+    moods: null,
   },
 
   mutations: {
-    SET_USER_MOODS(state, payload) {
+    SET_MOODS(state, payload) {
       state.moods = payload;
     },
 
@@ -24,13 +24,13 @@ export default {
   actions: {
     getProfileAndMoods({ commit, getters }) {
       commit("SET_LOADING", true);
-      commit("CLEAR_ERROR");
 
       firebase
         .collection("userProfiles")
         .where("userId", "==", getters.user.userId)
         .onSnapShot(
           (querySnapshot) => {
+            console.log(querySnapshot);
             let userProfile = [];
 
             querySnapshot.forEach((doc) => {
@@ -43,7 +43,7 @@ export default {
               userProfile.push(profileData);
             });
 
-            commit("SET_USER_MOODS", userProfile);
+            commit("SET_MOODS", userProfile);
             commit("SET_LOADING", false);
           },
           (err) => {

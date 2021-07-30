@@ -16,9 +16,9 @@
 
       <v-btn to="resources">Resources</v-btn>
 
-      <v-btn elevation="0">
+      <v-btn @click.prevent="logout" elevation="0">
         Log out
-        <v-icon @click.prevent="logOut" right>mdi-logout</v-icon>
+        <v-icon right>mdi-logout</v-icon>
       </v-btn>
     </v-app-bar>
 
@@ -36,12 +36,21 @@ export default {
 
   components: {},
 
+  computed: {
+    userIsAuthenticated() {
+      return (
+        this.$store.getters.user !== null &&
+        this.$store.getters.user !== undefined
+      );
+    },
+  },
+
   data: () => ({
     //
   }),
 
   methods: {
-    logOut() {
+    logout() {
       this.$store.dispatch("logout");
       this.$router.go({
         path: this.$router.path,

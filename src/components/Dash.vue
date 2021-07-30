@@ -1,5 +1,12 @@
 <template>
   <div id="dashboard">
+    <v-layout row v-if="error">
+      <v-flex xs12 sm12 md12 lg12 xl12>
+        <app-alert @dismissed="onDismissed" :v-text="error"></app-alert>
+      </v-flex>
+    </v-layout>
+
+    {{ user }}
     <TodaysDateDisplay />
 
     <MoodRangeButtons />
@@ -26,7 +33,7 @@ export default {
     MoodBarGraphs,
   },
 
-  mounted() {
+  created() {
     return this.$store.dispatch("getProfileAndMoods");
   },
 
@@ -46,6 +53,12 @@ export default {
 
   data() {
     return {};
+  },
+
+  methods: {
+    onDismissed() {
+      this.$store.dispatch("clearError");
+    },
   },
 };
 </script>
