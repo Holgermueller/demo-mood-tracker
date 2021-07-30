@@ -36,7 +36,7 @@ export default {
               userId: user.uid,
               userMoods: [
                 {
-                  creatorId: "",
+                  creatorId: user.uid,
                   mood: "Bored",
                   moodId: "bored",
                   timesFelt: 0,

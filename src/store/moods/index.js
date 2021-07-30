@@ -1,4 +1,4 @@
-//import firebase from "../../firebase/firebaseInit";
+import firebase from "../../firebase/firebaseInit";
 
 export default {
   state: {

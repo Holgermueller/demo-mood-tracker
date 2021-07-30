@@ -8,9 +8,7 @@
 export default {
   name: "MoodInstancesTracked",
 
-  data() {
-    return {};
-  },
+  props: {},
 
   computed: {
     instancesTracked() {

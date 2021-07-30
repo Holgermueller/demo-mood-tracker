@@ -33,14 +33,8 @@ export default {
     };
   },
 
-  computed: {
-    moods() {
-      return this.$store.getters.moods;
-    },
-  },
-
   methods: {
-    incrementMood(e) {
+    incrementMood() {
       // let moodValue = e.currentTarget.value;
       // let moodId = e.currentTarget.id;
     },

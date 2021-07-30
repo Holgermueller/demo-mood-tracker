@@ -26,6 +26,24 @@ export default {
     MoodBarGraphs,
   },
 
+  mounted() {
+    return this.$store.dispatch("getProfileAndMoods");
+  },
+
+  computed: {
+    user() {
+      return this.$store.getters.user;
+    },
+
+    userProfile() {
+      return this.$store.getters.moods;
+    },
+
+    error() {
+      return this.$store.getters.error;
+    },
+  },
+
   data() {
     return {};
   },

@@ -27,11 +27,9 @@ export default {
     return {};
   },
 
-  computed: {
-    moods() {
-      return this.$store.getters.moods;
-    },
+  props: {},
 
+  computed: {
     instancesTracked() {
       return this.$store.getters.moods.reduce(
         (a, { timesFelt }) => a + timesFelt,
