@@ -22,7 +22,7 @@
               elevation="0"
               :id="mood.mood"
               :value="mood.timesFelt"
-              :model="mood"
+              :model="mood.mood"
             >
               {{ mood.mood }}
             </v-btn>
@@ -58,9 +58,12 @@ export default {
 
   methods: {
     incrementMood(e) {
-      console.log(e.currentTarget.id);
-      // let moodValue = e.currentTarget.value;
-      // let moodId = e.currentTarget.id;
+      this.$store.dispatch("incrementMood", {
+        moodId: e.currentTarget.id,
+        moodIncrement: e.currentTarget.value++,
+      });
+
+      console.log(e.currentTarget.value++, e.currentTarget.id);
     },
   },
 };

@@ -51,7 +51,19 @@ export default {
         );
     },
 
-    incrementMood() {},
+    incrementMood({ commit }, payload) {
+      commit("SET_LOADING", true);
+
+      firebase
+        .collection("userProfiles")
+        .doc()
+        .update()
+        .then(() => {})
+        .catch((err) => {
+          commit("SET_LOADING", true);
+          commit("SET_ERROR", err);
+        });
+    },
   },
 
   getters: {

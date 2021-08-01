@@ -1,6 +1,10 @@
 <template>
   <div id="instancesTracked">
-    <h3>Instances tracked: {{ instancesTracked }}</h3>
+    <v-card class="instances-tracked-card" elevation="0">
+      <v-card-title>
+        <h3>Instances tracked: {{ instancesTracked }}</h3>
+      </v-card-title>
+    </v-card>
   </div>
 </template>
 
@@ -27,6 +31,10 @@ export default {
 </script>
 
 <style scoped>
+.instances-tracked-card {
+  width: 75%;
+  margin: 2px auto;
+}
 h3 {
   width: fit-content;
   margin: auto;
