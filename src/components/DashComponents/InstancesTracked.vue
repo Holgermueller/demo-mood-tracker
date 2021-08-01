@@ -8,11 +8,16 @@
 export default {
   name: "MoodInstancesTracked",
 
-  props: {},
+  props: {
+    userProfile: {
+      type: Array,
+      required: true,
+    },
+  },
 
   computed: {
     instancesTracked() {
-      return this.$store.getters.moods.reduce(
+      return this.userProfile[0].userMoods.reduce(
         (a, { timesFelt }) => a + timesFelt,
         0
       );

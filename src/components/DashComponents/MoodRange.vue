@@ -2,7 +2,7 @@
   <div id="moodRange">
     <v-card class="mood-range-card" elevation="0" :loading="loading">
       <v-card-title>
-        <h2>Hello, [username]</h2>
+        <h2>Hello, {{ userProfile[0].username }}</h2>
       </v-card-title>
 
       <v-card-text>
@@ -10,7 +10,11 @@
           <legend>
             How are you feeling?
           </legend>
-          <!-- <div v-for="mood in moods" :key="mood.mood" class="buttons-array">
+          <div
+            v-for="mood in userProfile[0].userMoods"
+            :key="mood.mood"
+            class="buttons-array"
+          >
             <v-btn
               @click.prevent="incrementMood"
               :color="mood.color"
@@ -22,7 +26,7 @@
             >
               {{ mood.mood }}
             </v-btn>
-          </div> -->
+          </div>
         </fieldset>
       </v-card-text>
     </v-card>
@@ -32,6 +36,13 @@
 <script>
 export default {
   name: "MoodRangeButtons",
+
+  props: {
+    userProfile: {
+      type: Array,
+      required: true,
+    },
+  },
 
   data() {
     return {
@@ -46,7 +57,8 @@ export default {
   },
 
   methods: {
-    incrementMood() {
+    incrementMood(e) {
+      console.log(e.currentTarget.id);
       // let moodValue = e.currentTarget.value;
       // let moodId = e.currentTarget.id;
     },

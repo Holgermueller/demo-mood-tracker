@@ -6,14 +6,13 @@
       </v-flex>
     </v-layout>
 
-    {{ user }}
     <TodaysDateDisplay />
 
-    <MoodRangeButtons />
+    <MoodRangeButtons :userProfile="userProfile" />
 
-    <InstancesTracked />
+    <InstancesTracked :userProfile="userProfile" />
 
-    <MoodBarGraphs />
+    <MoodBarGraphs :userProfile="userProfile" />
   </div>
 </template>
 

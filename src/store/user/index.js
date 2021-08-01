@@ -33,10 +33,9 @@ export default {
           db.collection("userProfiles")
             .add({
               username: payload.username,
-              userId: user.uid,
+              creatorId: user.uid,
               userMoods: [
                 {
-                  creatorId: user.uid,
                   mood: "Bored",
                   moodId: "bored",
                   timesFelt: 0,
@@ -44,7 +43,6 @@ export default {
                   color: "rgba(69, 196, 150, 0.2)",
                 },
                 {
-                  creatorId: user.uid,
                   mood: "Happy",
                   moodId: "happy",
                   timesFelt: 0,
@@ -52,7 +50,6 @@ export default {
                   color: "rgba(255, 215, 0, 0.2)",
                 },
                 {
-                  creatorId: user.uid,
                   mood: "Sad",
                   moodId: "sad",
                   timesFelt: 0,
@@ -60,7 +57,6 @@ export default {
                   color: "rgba(0, 0, 255, 0.2)",
                 },
                 {
-                  creatorId: user.uid,
                   mood: "Tired",
                   moodId: "tired",
                   timesFelt: 0,
@@ -68,7 +64,6 @@ export default {
                   color: "rgba(153, 50, 204, 0.2)",
                 },
                 {
-                  creatorId: user.uid,
                   mood: "Anxious",
                   moodId: "anxious",
                   timesFelt: 0,
@@ -76,7 +71,6 @@ export default {
                   color: "rgba(255, 165, 0, 0.2)",
                 },
                 {
-                  creatorId: user.uid,
                   mood: "Angry",
                   moodId: "angry",
                   timesFelt: 0,
@@ -84,7 +78,6 @@ export default {
                   color: "rgba(217, 27, 66, 0.2)",
                 },
                 {
-                  creatorId: user.uid,
                   mood: "Uncomfortable",
                   moodId: "uncomfortable",
                   timesFelt: 0,
@@ -92,7 +85,6 @@ export default {
                   color: "rgba(64, 224, 208, 0.2)",
                 },
                 {
-                  creatorId: user.uid,
                   mood: "Calm",
                   moodId: "calm",
                   timesFelt: 0,
@@ -100,7 +92,6 @@ export default {
                   color: "rgba(0, 0, 95, 0.2)",
                 },
                 {
-                  creatorId: user.uid,
                   mood: "Weird",
                   moodId: "weird",
                   timesFelt: 0,

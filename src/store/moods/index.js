@@ -27,16 +27,14 @@ export default {
 
       firebase
         .collection("userProfiles")
-        .where("userId", "==", getters.user.userId)
-        .onSnapShot(
+        .where("creatorId", "==", getters.user.userId)
+        .onSnapshot(
           (querySnapshot) => {
-            console.log(querySnapshot);
             let userProfile = [];
-
             querySnapshot.forEach((doc) => {
               const profileData = {
                 userProfileId: doc.id,
-                profileId: doc.data().userId,
+                profileId: doc.data().creatorId,
                 username: doc.data().username,
                 userMoods: doc.data().userMoods,
               };

@@ -2,8 +2,12 @@
   <div id="moodGraphs" class="graphs">
     <v-card elevation="0" :loading="loading">
       <v-card-text>
-        <!-- <div class="graphs">
-          <div v-for="mood in moods" :key="mood.mood" class="mood">
+        <div class="graphs">
+          <div
+            v-for="mood in userProfile[0].userMoods"
+            :key="mood.mood"
+            class="mood"
+          >
             <div
               class="single-mood"
               :class="mood.mood"
@@ -18,7 +22,7 @@
             ></div>
             <span>{{ mood.mood }} | Times felt: {{ mood.timesFelt }}</span>
           </div>
-        </div> -->
+        </div>
       </v-card-text>
     </v-card>
   </div>
@@ -28,15 +32,16 @@
 export default {
   name: "MoodBarGraphs",
 
-  data() {
-    return {};
+  props: {
+    userProfile: {
+      type: Array,
+      required: true,
+    },
   },
-
-  props: {},
 
   computed: {
     instancesTracked() {
-      return this.$store.getters.moods.reduce(
+      return this.userProfile[0].userMoods.reduce(
         (a, { timesFelt }) => a + timesFelt,
         0
       );

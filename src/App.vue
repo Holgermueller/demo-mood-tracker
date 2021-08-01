@@ -8,15 +8,28 @@
       </h1>
       <v-spacer></v-spacer>
 
-      <v-btn to="/dashboard">Dash</v-btn>
+      <v-btn
+        v-if="userIsAuthenticated"
+        color="primary"
+        elevation="0"
+        to="/dashboard"
+        >Dash</v-btn
+      >
 
-      <v-btn to="/about">
+      <v-btn color="primary" elevation="0" to="/about">
         About
       </v-btn>
 
-      <v-btn to="resources">Resources</v-btn>
+      <v-btn color="primary" elevation="0" to="resources">Resources</v-btn>
 
-      <v-btn @click.prevent="logout" elevation="0">
+      <v-btn
+        v-if="userIsAuthenticated"
+        color="primary"
+        @click.prevent="logout"
+        elevation="0"
+        :loading="loading"
+        :disabled="loading"
+      >
         Log out
         <v-icon right>mdi-logout</v-icon>
       </v-btn>
@@ -34,14 +47,20 @@
 export default {
   name: "App",
 
-  components: {},
-
   computed: {
+    user() {
+      return this.$store.getters.user;
+    },
+
     userIsAuthenticated() {
       return (
         this.$store.getters.user !== null &&
         this.$store.getters.user !== undefined
       );
+    },
+
+    loading() {
+      return this.$store.getters.loading;
     },
   },
 
