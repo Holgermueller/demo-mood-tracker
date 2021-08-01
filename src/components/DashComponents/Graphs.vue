@@ -1,7 +1,11 @@
 <template>
-  <div id="moodGraphs" class="graphs">
+  <div id="moodGraphs" class="graphs text-center">
     <v-card elevation="0" :loading="loading">
       <v-card-text>
+        <div class="instances-tracked">
+          <InstancesTracked :instancesTracked="instancesTracked" />
+        </div>
+
         <div class="graphs">
           <div
             v-for="mood in userProfile[0].userMoods"
@@ -29,8 +33,14 @@
 </template>
 
 <script>
+import InstancesTracked from "./InstancesTracked.vue";
+
 export default {
   name: "MoodBarGraphs",
+
+  components: {
+    InstancesTracked,
+  },
 
   props: {
     userProfile: {

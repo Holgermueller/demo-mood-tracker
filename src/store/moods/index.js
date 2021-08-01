@@ -12,7 +12,7 @@ export default {
 
     INCREMENT_MOOD(state, payload) {
       const moodToIncrement = state.moods.find((thisMood) => {
-        return thisMood.id == payload.moodId;
+        return thisMood.creatorId == payload.creatorId;
       });
 
       if (payload.moodToIncrement) {
@@ -34,7 +34,7 @@ export default {
             querySnapshot.forEach((doc) => {
               const profileData = {
                 userProfileId: doc.id,
-                profileId: doc.data().creatorId,
+                creatorId: doc.data().creatorId,
                 username: doc.data().username,
                 userMoods: doc.data().userMoods,
               };
@@ -56,9 +56,14 @@ export default {
 
       firebase
         .collection("userProfiles")
-        .doc()
-        .update()
-        .then(() => {})
+        .doc(payload.creatorId)
+        .update({
+          timesFelt: payload.moodIncrement,
+        })
+        .then(() => {
+          commit("INCREMENT_MOOD", payload);
+          commit("SET_LOADING", false);
+        })
         .catch((err) => {
           commit("SET_LOADING", true);
           commit("SET_ERROR", err);

@@ -68,6 +68,12 @@ export default {
     //
   }),
 
+  watch: {
+    user(value) {
+      return value;
+    },
+  },
+
   methods: {
     logout() {
       this.$store.dispatch("logout");

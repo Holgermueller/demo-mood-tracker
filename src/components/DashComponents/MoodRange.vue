@@ -59,11 +59,10 @@ export default {
   methods: {
     incrementMood(e) {
       this.$store.dispatch("incrementMood", {
-        moodId: e.currentTarget.id,
+        mood: e.currentTarget.id,
         moodIncrement: e.currentTarget.value++,
+        creatorId: this.userProfile[0].creatorId,
       });
-
-      console.log(e.currentTarget.value++, e.currentTarget.id);
     },
   },
 };

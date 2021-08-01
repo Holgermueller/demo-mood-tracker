@@ -1,5 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
+import firebase from "firebase";
 import LoginReg from "../components/LoginReg";
 import Dashboard from "../components/Dash";
 import About from "../components/About";
@@ -21,6 +22,10 @@ let router = new VueRouter({
       path: "/dashboard",
       name: "Dashboard",
       component: Dashboard,
+      props: true,
+      meta: {
+        requiresAuth: true,
+      },
     },
 
     {
@@ -35,6 +40,23 @@ let router = new VueRouter({
       component: Resources,
     },
   ],
+});
+
+router.beforeEach((to, from, next) => {
+  if (to.matched.some((record) => record.meta.requiresAuth)) {
+    if (!firebase.auth().currentUser) {
+      next({
+        path: "/",
+        query: {
+          redirect: to.fullPath,
+        },
+      });
+    } else {
+      next();
+    }
+  } else {
+    next();
+  }
 });
 
 export default router;
