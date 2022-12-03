@@ -1,12 +1,9 @@
 <template>
   <v-app>
-    <v-app-bar app color="primary" dark>
+    <v-app-bar app class="text-center">
       <h1>
-        <v-icon left>mdi-emoticon</v-icon>
         Mood Tracker
-        <v-icon right>mdi-emoticon-angry</v-icon>
       </h1>
-      <v-spacer></v-spacer>
     </v-app-bar>
 
     <v-main>
@@ -32,6 +29,24 @@ export default {
 </script>
 
 <style scoped>
+h1 {
+  background: linear-gradient(
+    to right,
+    red,
+    orange,
+    yellow,
+    green,
+    blue,
+    indigo,
+    violet
+  );
+  background-clip: text;
+  color: transparent;
+  width: max-content;
+  margin: auto;
+  font-weight: bolder;
+}
+
 footer {
   margin: 4px auto 0;
   text-align: center;

@@ -1,8 +1,61 @@
-import firebase from "../../firebase/firebaseInit";
-
 export default {
   state: {
-    moods: null,
+    moods: [
+      {
+        mood: "Bored",
+        timesFelt: 1,
+        borderColor: "green",
+        color: "rgba(69, 196, 150, 0.2)",
+      },
+      {
+        mood: "Happy",
+        timesFelt: 2,
+        borderColor: "#ffd700",
+        color: "rgba(255, 215, 0, 0.2)",
+      },
+      {
+        mood: "Sad",
+        timesFelt: 3,
+        borderColor: "blue",
+        color: "rgba(0, 0, 255, 0.2)",
+      },
+      {
+        mood: "Tired",
+        timesFelt: 4,
+        borderColor: "#9932cc",
+        color: "rgba(153, 50, 204, 0.2)",
+      },
+      {
+        mood: "Anxious",
+        timesFelt: 5,
+        borderColor: "#ffa500",
+        color: "rgba(255, 165, 0, 0.2)",
+      },
+      {
+        mood: "Angry",
+        timesFelt: 6,
+        borderColor: "red",
+        color: "rgba(217, 27, 66, 0.2)",
+      },
+      {
+        mood: "Uncomfortable",
+        timesFelt: 7,
+        borderColor: "#40E0D0",
+        color: "rgba(64, 224, 208, 0.2)",
+      },
+      {
+        mood: "Calm",
+        timesFelt: 8,
+        borderColor: "#00005f",
+        color: "rgba(0, 0, 95, 0.2)",
+      },
+      {
+        mood: "Weird",
+        timesFelt: 9,
+        borderColor: "#ff00ff",
+        color: "rgba(255, 0, 255, 0.2)",
+      },
+    ],
   },
 
   mutations: {
@@ -21,55 +74,7 @@ export default {
     },
   },
 
-  actions: {
-    getProfileAndMoods({ commit, getters }) {
-      commit("SET_LOADING", true);
-
-      firebase
-        .collection("userProfiles")
-        .where("creatorId", "==", getters.user.userId)
-        .onSnapshot(
-          (querySnapshot) => {
-            let userProfile = [];
-            querySnapshot.forEach((doc) => {
-              const profileData = {
-                userProfileId: doc.id,
-                creatorId: doc.data().creatorId,
-                username: doc.data().username,
-                userMoods: doc.data().userMoods,
-              };
-              userProfile.push(profileData);
-            });
-
-            commit("SET_MOODS", userProfile);
-            commit("SET_LOADING", false);
-          },
-          (err) => {
-            commit("SET_LOADING", true);
-            commit("SET_ERROR", err);
-          }
-        );
-    },
-
-    incrementMood({ commit }, payload) {
-      commit("SET_LOADING", true);
-
-      firebase
-        .collection("userProfiles")
-        .doc(payload.creatorId)
-        .update({
-          timesFelt: payload.moodIncrement,
-        })
-        .then(() => {
-          commit("INCREMENT_MOOD", payload);
-          commit("SET_LOADING", false);
-        })
-        .catch((err) => {
-          commit("SET_LOADING", true);
-          commit("SET_ERROR", err);
-        });
-    },
-  },
+  actions: {},
 
   getters: {
     moods(state) {

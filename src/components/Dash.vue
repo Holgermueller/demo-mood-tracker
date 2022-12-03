@@ -1,16 +1,10 @@
 <template>
   <div id="dashboard">
-    <v-layout row v-if="error">
-      <v-flex xs12 sm12 md12 lg12 xl12>
-        <app-alert @dismissed="onDismissed" :v-text="error"></app-alert>
-      </v-flex>
-    </v-layout>
-
     <TodaysDateDisplay />
 
-    <MoodRangeButtons :userProfile="userProfile" />
+    <MoodRangeButtons :moods="moods" />
 
-    <MoodBarGraphs :userProfile="userProfile" />
+    <MoodBarGraphs :moods="moods" />
   </div>
 </template>
 
@@ -28,21 +22,13 @@ export default {
     MoodBarGraphs,
   },
 
-  created() {
-    return this.$store.dispatch("getProfileAndMoods");
-  },
+  // created() {
+  //   return this.$store.dispatch("getProfileAndMoods");
+  // },
 
   computed: {
-    user() {
-      return this.$store.getters.user;
-    },
-
-    userProfile() {
+    moods() {
       return this.$store.getters.moods;
-    },
-
-    error() {
-      return this.$store.getters.error;
     },
   },
 
@@ -50,11 +36,7 @@ export default {
     return {};
   },
 
-  methods: {
-    onDismissed() {
-      this.$store.dispatch("clearError");
-    },
-  },
+  methods: {},
 };
 </script>
 

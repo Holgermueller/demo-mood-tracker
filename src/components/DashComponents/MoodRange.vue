@@ -1,20 +1,12 @@
 <template>
   <div id="moodRange">
-    <v-card class="mood-range-card" elevation="0" :loading="loading">
-      <v-card-title>
-        <h2>Hello, {{ userProfile[0].username }}</h2>
-      </v-card-title>
-
+    <v-card class="mood-range-card" elevation="0">
       <v-card-text>
         <fieldset>
           <legend>
             How are you feeling?
           </legend>
-          <div
-            v-for="mood in userProfile[0].userMoods"
-            :key="mood.mood"
-            class="buttons-array"
-          >
+          <div v-for="mood in moods" :key="mood.mood" class="buttons-array">
             <v-btn
               @click.prevent="incrementMood"
               :color="mood.color"
@@ -38,7 +30,7 @@ export default {
   name: "MoodRangeButtons",
 
   props: {
-    userProfile: {
+    moods: {
       type: Array,
       required: true,
     },
@@ -50,18 +42,11 @@ export default {
     };
   },
 
-  computed: {
-    loading() {
-      return this.$store.getters.loading;
-    },
-  },
-
   methods: {
     incrementMood(e) {
       this.$store.dispatch("incrementMood", {
         mood: e.currentTarget.id,
         moodIncrement: e.currentTarget.value++,
-        creatorId: this.userProfile[0].creatorId,
       });
     },
   },

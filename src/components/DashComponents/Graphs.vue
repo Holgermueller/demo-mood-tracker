@@ -1,26 +1,24 @@
 <template>
   <div id="moodGraphs" class="graphs text-center">
-    <v-card elevation="0" :loading="loading">
+    <v-card elevation="0">
       <v-card-text>
         <div class="instances-tracked">
           <InstancesTracked :instancesTracked="instancesTracked" />
         </div>
 
         <div class="graphs">
-          <div
-            v-for="mood in userProfile[0].userMoods"
-            :key="mood.mood"
-            class="mood"
-          >
+          <div v-for="mood in moods" :key="mood.mood" class="mood">
             <div
               class="single-mood"
               :class="mood.mood"
-              :style="`width: ${
-                Math.floor((100 / instancesTracked) * mood.timesFelt) || 0
-              }%;
+              :style="
+                `width: ${Math.floor(
+                  (100 / instancesTracked) * mood.timesFelt
+                ) || 0}%;
             background: ${mood.color}; border-left: 4px solid ${
-                mood.borderColor
-              }; `"
+                  mood.borderColor
+                }; `
+              "
             ></div>
             <span>{{ mood.mood }} | Times felt: {{ mood.timesFelt }}</span>
           </div>
@@ -41,7 +39,7 @@ export default {
   },
 
   props: {
-    userProfile: {
+    moods: {
       type: Array,
       required: true,
     },
@@ -49,10 +47,7 @@ export default {
 
   computed: {
     instancesTracked() {
-      return this.userProfile[0].userMoods.reduce(
-        (a, { timesFelt }) => a + timesFelt,
-        0
-      );
+      return this.moods.reduce((a, { timesFelt }) => a + timesFelt, 0);
     },
   },
 };
