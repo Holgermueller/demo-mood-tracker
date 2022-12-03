@@ -15,14 +15,12 @@
             <div
               class="single-mood"
               :class="mood.mood"
-              :style="
-                `width: ${Math.floor(
-                  (100 / instancesTracked) * mood.timesFelt
-                ) || 0}%;
+              :style="`width: ${
+                Math.floor((100 / instancesTracked) * mood.timesFelt) || 0
+              }%;
             background: ${mood.color}; border-left: 4px solid ${
-                  mood.borderColor
-                }; `
-              "
+                mood.borderColor
+              }; `"
             ></div>
             <span>{{ mood.mood }} | Times felt: {{ mood.timesFelt }}</span>
           </div>
@@ -55,10 +53,6 @@ export default {
         (a, { timesFelt }) => a + timesFelt,
         0
       );
-    },
-
-    loading() {
-      return this.$store.getters.loading;
     },
   },
 };
