@@ -59,13 +59,9 @@ export default {
   },
 
   mutations: {
-    SET_MOODS(state, payload) {
-      state.moods = payload;
-    },
-
     INCREMENT_MOOD(state, payload) {
       const moodToIncrement = state.moods.find((thisMood) => {
-        return thisMood.creatorId == payload.creatorId;
+        return thisMood.mood == payload.mood;
       });
 
       if (payload.moodToIncrement) {
@@ -74,7 +70,11 @@ export default {
     },
   },
 
-  actions: {},
+  actions: {
+    incrementMood({ commit }) {
+      commit("INCREMENT_MOOD");
+    },
+  },
 
   getters: {
     moods(state) {

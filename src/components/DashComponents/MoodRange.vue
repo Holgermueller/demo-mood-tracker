@@ -2,15 +2,16 @@
   <div id="moodRange">
     <v-card class="mood-range-card" elevation="0">
       <v-card-text>
-        <fieldset>
-          <legend>
-            How are you feeling?
-          </legend>
+        <div>
+          <p>
+            How are you feeling today?
+          </p>
           <div v-for="mood in moods" :key="mood.mood" class="buttons-array">
             <v-btn
               @click.prevent="incrementMood"
               :color="mood.color"
               :style="`border: 2px solid ${mood.borderColor}`"
+              class="mood-button"
               elevation="0"
               :id="mood.mood"
               :value="mood.timesFelt"
@@ -19,7 +20,7 @@
               {{ mood.mood }}
             </v-btn>
           </div>
-        </fieldset>
+        </div>
       </v-card-text>
     </v-card>
   </div>
@@ -68,7 +69,8 @@ fieldset {
   border-radius: 15px;
   padding: 8px;
 }
-legend {
+p {
+  text-align: center;
   margin: auto;
 }
 .buttons-array {
@@ -76,9 +78,9 @@ legend {
   justify-content: center;
   padding: 8px;
 }
-.button {
-  margin: auto;
+.mood-button {
+  margin: 4px auto;
   border-radius: 7px;
-  width: 15%;
+  width: 100%;
 }
 </style>
