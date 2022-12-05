@@ -2,9 +2,16 @@
   <div id="dashboard">
     <TodaysDateDisplay />
 
-    <MoodRangeButtons :moods="moods" />
-
-    <MoodBarGraphs :moods="moods" />
+    <v-container>
+      <v-row>
+        <v-col>
+          <MoodRangeButtons :moods="moods" />
+        </v-col>
+        <v-col>
+          <MoodBarGraphs :moods="moods" />
+        </v-col>
+      </v-row>
+    </v-container>
   </div>
 </template>
 

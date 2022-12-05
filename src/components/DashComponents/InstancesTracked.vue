@@ -1,6 +1,6 @@
 <template>
   <div id="instancesTracked">
-    <h3>Total instances tracked: {{ instancesTracked }}</h3>
+    <p>Total instances tracked: {{ instancesTracked }}</p>
   </div>
 </template>
 
@@ -18,8 +18,10 @@ export default {
 </script>
 
 <style scoped>
-h3 {
+p {
   width: fit-content;
   margin: 4px auto;
+  font-size: large;
+  font-weight: bold;
 }
 </style>

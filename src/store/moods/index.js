@@ -71,8 +71,10 @@ export default {
   },
 
   actions: {
-    incrementMood({ commit }) {
-      commit("INCREMENT_MOOD");
+    incrementMood({ commit }, payload) {
+      console.log(payload);
+      commit("INCREMENT_MOOD", payload.moodData);
+      console.log(payload);
     },
   },
 

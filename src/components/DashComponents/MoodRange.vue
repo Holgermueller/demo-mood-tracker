@@ -16,6 +16,7 @@
               :id="mood.mood"
               :value="mood.timesFelt"
               :model="mood.mood"
+              large
             >
               {{ mood.mood }}
             </v-btn>
@@ -37,12 +38,6 @@ export default {
     },
   },
 
-  data() {
-    return {
-      moodToIncrement: this.mood,
-    };
-  },
-
   methods: {
     incrementMood(e) {
       this.$store.dispatch("incrementMood", {
@@ -56,27 +51,19 @@ export default {
 
 <style scoped>
 .mood-range-card {
-  width: 75%;
+  width: 95%;
   margin: 2px auto;
 }
-h2 {
-  width: fit-content;
-  margin: auto;
-}
-fieldset {
+p {
   width: fit-content;
   margin: 4px auto;
-  border-radius: 15px;
-  padding: 8px;
+  font-size: large;
+  font-weight: bold;
 }
-p {
-  text-align: center;
-  margin: auto;
-}
+
 .buttons-array {
   display: inline;
   justify-content: center;
-  padding: 8px;
 }
 .mood-button {
   margin: 4px auto;

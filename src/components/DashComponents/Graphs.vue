@@ -55,7 +55,7 @@ export default {
 
 <style scoped>
 .graphs {
-  width: 75%;
+  width: 95%;
   margin: 0 auto;
 }
 
@@ -75,5 +75,6 @@ span {
   text-align: center;
   display: inline-block;
   padding: 10px 20px;
+  font-weight: bold;
 }
 </style>
