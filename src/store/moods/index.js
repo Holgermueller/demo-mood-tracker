@@ -3,7 +3,7 @@ export default {
     moods: [
       {
         mood: "Bored",
-        timesFelt: 1,
+        timesFelt: 10,
         borderColor: "green",
         color: "rgba(69, 196, 150, 0.2)",
       },
@@ -64,17 +64,15 @@ export default {
         return thisMood.mood == payload.mood;
       });
 
-      if (payload.moodToIncrement) {
-        moodToIncrement.timesFelt = payload.moodIncrement;
+      if (payload.moodIncrement) {
+        moodToIncrement.timesFelt++;
       }
     },
   },
 
   actions: {
     incrementMood({ commit }, payload) {
-      console.log(payload);
-      commit("INCREMENT_MOOD", payload.moodData);
-      console.log(payload);
+      commit("INCREMENT_MOOD", payload);
     },
   },
 

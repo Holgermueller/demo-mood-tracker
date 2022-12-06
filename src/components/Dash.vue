@@ -2,6 +2,8 @@
   <div id="dashboard">
     <TodaysDateDisplay />
 
+    <InfoLinks />
+
     <v-container fluid>
       <v-layout row wrap>
         <v-flex xs12 sm12 md6 lg6 xl6>
@@ -17,6 +19,7 @@
 
 <script>
 import TodaysDateDisplay from "./DashComponents/TodaysDate.vue";
+import InfoLinks from "./DashComponents/Info.vue";
 import MoodRangeButtons from "./DashComponents/MoodRange.vue";
 import MoodBarGraphs from "./DashComponents/Graphs.vue";
 
@@ -25,6 +28,7 @@ export default {
 
   components: {
     TodaysDateDisplay,
+    InfoLinks,
     MoodRangeButtons,
     MoodBarGraphs,
   },

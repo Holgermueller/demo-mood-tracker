@@ -15,7 +15,6 @@
               elevation="0"
               :id="mood.mood"
               :value="mood.timesFelt"
-              :model="mood.mood"
               large
             >
               {{ mood.mood }}
