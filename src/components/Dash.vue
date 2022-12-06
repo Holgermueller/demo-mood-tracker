@@ -2,15 +2,15 @@
   <div id="dashboard">
     <TodaysDateDisplay />
 
-    <v-container>
-      <v-row>
-        <v-col>
+    <v-container fluid>
+      <v-layout row wrap>
+        <v-flex xs12 sm12 md6 lg6 xl6>
           <MoodRangeButtons :moods="moods" />
-        </v-col>
-        <v-col>
+        </v-flex>
+        <v-flex xs12 sm12 md6 lg6 xl6>
           <MoodBarGraphs :moods="moods" />
-        </v-col>
-      </v-row>
+        </v-flex>
+      </v-layout>
     </v-container>
   </div>
 </template>
