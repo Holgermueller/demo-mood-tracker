@@ -7,7 +7,7 @@
     </v-app-bar>
 
     <v-main>
-      <router-view></router-view>
+      <Dash />
     </v-main>
 
     <footer>&copy; 2021-2022 Holger Mueller</footer>
@@ -15,10 +15,14 @@
 </template>
 
 <script>
+import Dash from "./components/Dash.vue";
+
 export default {
   name: "App",
 
-  computed: {},
+  components: {
+    Dash,
+  },
 
   data: () => ({
     //
