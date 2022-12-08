@@ -14,7 +14,20 @@
           </v-card-title>
 
           <v-card-text>
-            text here
+            <p class="about-text">
+              This is just a front-end demo of what a user sees when they log in
+              to the app.
+            </p>
+            <p class="about-text">
+              The full-stack app will have persistent data based on user input.
+            </p>
+            <p class="about-text">
+              Of course, the user can update as often as they would like.
+            </p>
+            <p class="about-text">
+              Too see the full-stack app, click
+              <v-btn text elevation="0">HERE</v-btn> or the link on the demo.
+            </p>
           </v-card-text>
 
           <v-card-actions>
@@ -38,4 +51,8 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.about-text {
+  color: #080808;
+}
+</style>
