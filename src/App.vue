@@ -23,12 +23,6 @@ export default {
   components: {
     Dash,
   },
-
-  data: () => ({
-    //
-  }),
-
-  methods: {},
 };
 </script>
 

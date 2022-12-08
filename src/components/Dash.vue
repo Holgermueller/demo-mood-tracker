@@ -33,21 +33,11 @@ export default {
     MoodBarGraphs,
   },
 
-  // created() {
-  //   return this.$store.dispatch("getProfileAndMoods");
-  // },
-
   computed: {
     moods() {
       return this.$store.getters.moods;
     },
   },
-
-  data() {
-    return {};
-  },
-
-  methods: {},
 };
 </script>
 
