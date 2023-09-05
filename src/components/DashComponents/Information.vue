@@ -3,9 +3,9 @@
     <div class="info-links">
       <AboutDialog />
 
-      <v-btn text elevation="0">
+      <!-- <v-btn text elevation="0">
         Full App
-      </v-btn>
+      </v-btn> -->
     </div>
   </div>
 </template>

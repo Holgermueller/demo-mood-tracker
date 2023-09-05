@@ -10,7 +10,7 @@
       <Dash />
     </v-main>
 
-    <footer>&copy; 2021-2022 Holger Mueller</footer>
+    <footer>&copy; 2021-2023 Holger Mueller</footer>
   </v-app>
 </template>
 

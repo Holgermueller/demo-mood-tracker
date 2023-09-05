@@ -19,7 +19,7 @@
 
 <script>
 import TodaysDateDisplay from "./DashComponents/TodaysDate.vue";
-import InfoLinks from "./DashComponents/Info.vue";
+import InfoLinks from "./DashComponents/Information.vue";
 import MoodRangeButtons from "./DashComponents/MoodRange.vue";
 import MoodBarGraphs from "./DashComponents/Graphs.vue";
 
